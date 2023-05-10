@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f9fafd;
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: #1f1652;
+      padding: 15px 15px 20px 15px;
+      background: #f1f1f1;
+      position: fixed;
+      width: 100%;
+      z-index: 99;
+    }
+
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav a.active {
+
+      color: white;
+    }
+
+    #chart {
+      margin-left: 20;
+      margin-right: 20;
+    }
+    .chart-wrapper{
+      padding-top: 7%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topnav">
+
+		<a class="active" href="/">
+			<h2 class="header-heading text-dark mb-0">
+				<span><img src="{{ url_for('static', filename='images/job-search.png') }}" style="width: 40px; " class="me-2"></span>Walfly
+				<!-- <span><img src="/home/anush/Desktop/flask_name_copy/templates/static/images/job-recomended.jpg"
+						style="width: 40px;"></span> -->
+			</h2>
+		</a>
+	</div>
+  <div class="chart-wrapper">
+    <h2 class="text-center mb-4 fw-bold">GroundTruth Analysis</h2>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 mb-3">
+          <div id='chart' class='chart'></div>
+        </div>
+        <div class="col-lg-6 mb-3">
+          <div id='chart2' class='chart'></div>
+        </div>
+        <div class="col-lg-12 mb-3">
+          <div class="container-fluid">
+            <h3 class="text-center my-3 fw-bold">
+              Original & Extracted Data Comparision
+            </h3>
+          
+          <div id='chart3' class='chart'></div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script type='text/javascript'>
+  var graphs = {{ graphJSON | safe}};
+  Plotly.plot('chart', graphs, {});
+  var graphs2 = {{ graphJSON2 | safe}};
+  Plotly.plot('chart2', graphs2, {});
+  var graphs3 = {{ graphJSON3 | safe}};
+  Plotly.plot('chart3', graphs3, {});
+</script>
+
+</html>

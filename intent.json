@@ -1,0 +1,48 @@
+{
+  "intents": [
+    {
+      "name": "Greeting",
+      "patterns": ["hi", "hello", "hey"],
+      "responses": ["Hi there! How can I assist you?","Hey there! How can I assist you?"]
+    },
+     {
+      "name": "concern",
+      "patterns": ["how are you?", "how's you?", "how do you do?","what's up?"],
+      "responses": ["I am good what about you?"]
+    },
+    {
+      "name": "Name",
+      "patterns": ["what's your name?", "what should I call you?", "do you have a name?","what is your name"],
+      "responses": ["You can call me Chatbot.", "My name is Chatbot.", "I go by Chatbot."]
+    },
+ 
+     {
+      "name": "B response",
+      "patterns": ["I am good", "I am fine ", "it's great","Awesome","I am Well", "I am also good", "I also am fine ", "it's great","Awesome","I am Well"],
+      "responses": ["That's great! How can I assist you today?"]
+    },
+    {
+      "name":"User say no",
+      "patterns":["No","I am not looking job or candidate recommendation,but i have another question","I have other question"
+    ],
+      "responses":["Please tell me your query","How can i assist you?"]
+    },
+  
+    {
+      "name": "Goodbye",
+      "patterns": ["bye", "goodbye", "see you later"],
+      "responses": ["Goodbye! Have a great day."]
+    },
+    {
+      "name": "Thanks",
+      "patterns": ["thank you", "thanks", "appreciate it"],
+      "responses": ["You're welcome!", "No problem.", "Glad to help!"]
+    }
+
+  ]
+}
+
+
+
+
+

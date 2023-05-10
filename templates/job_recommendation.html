@@ -1,0 +1,202 @@
+<html>
+<title>job_recommend</title>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 14px 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #F2F2F2;
+    }
+
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 800px;
+      margin: 50px auto;
+    }
+
+    #customers td,
+    #customers th {
+      border: 1px solid #4d8bff;
+      padding: 14px 8px;
+    }
+
+    #customers tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #customers tr:hover {
+      background-color: #c7d8ff;
+    }
+
+    #customers th {
+      padding-top: 17px;
+      padding-bottom: 17px;
+      text-align: left;
+      background-color: #3c93f7;
+      color: white;
+      font-size: 20px;
+    }
+
+    #customers thead tr th,
+    #customers tbody tr td {
+      text-align: center;
+    }
+
+    .container {
+      margin-left: 400px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #e7e7e7;
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: #1f1652;
+      padding: 15px 15px 20px 15px;
+      background: #f1f1f1;
+    }
+
+    .topnav a {
+      float: left;
+      text-align: center;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a h2 {
+      color: black;
+      margin: 0;
+
+    }
+
+    .top-recommended {
+      border-radius: 5px;
+      box-shadow: 0px 3px 8px rgb(18 18 18 / 56%);
+      height: 100%;
+    }
+
+    .goodluck-txt {
+      font-size: 16px;
+      font-weight: 600;
+      padding-bottom: 15px;
+    }
+
+    .top-recommended img {
+      width: 120px;
+    }
+
+    .job-detail-wrapper {
+      padding: 20px;
+      border-top: 1px solid #a1b3ff;
+    }
+
+    .job-detail-wrapper h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0040d5;
+}
+.job-detail-wrapper h3 {
+    font-size: 20px;
+}
+
+    .recommended {
+      padding: 20px;
+      background: rgb(162, 189, 255);
+      min-height: 100%;
+      background: radial-gradient(circle, rgb(196 213 255) 0%, rgb(201 219 255) 10%, rgb(187 212 247) 35%, rgb(168 216 249) 100%);
+      /* background: radial-gradient(circle, rgba(162,189,255,1) 0%, rgba(146,182,255,1) 10%, rgba(107,164,255,1) 35%, rgba(153,213,255,1) 100%); */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topnav">
+
+    <a class="active" href="/">
+      <h2 class="header-heading">
+        <span><img src="{{ url_for('static', filename='images/job-search.png') }}"
+            style="width: 40px; " class="me-2"></span>Walfly
+        <!-- <span><img src="/home/anush/Desktop/flask_name_copy/templates/static/images/job-recomended.jpg"
+						style="width: 40px;"></span> -->
+      </h2>
+    </a>
+  </div>
+
+
+  <!-- <div class="container">
+  <h3><b>Top Three Recommendation</b></h3>
+  <p><b>recommend list....</b></p>
+</div> -->
+
+
+  <!-- <table id="customers">
+    <thead>
+      <tr>
+        <th style="color: #ddd">Top Three Recommendation</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in a %}
+      <tr>
+        <td>{{ item}}</td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table> -->
+  <div class="recommended">
+    <div class="container-fluid">
+      <div>
+        <h2 class="mt-3 mb-5">Top Recommended Jobs</h2>
+      </div>
+      <div class="row">
+        {% for item in a %}
+        <div class="col-lg-4 mb-4">
+          <div class="top-recommended py-4">
+            <!-- <div class="text-center pb-4">
+              <img src="/home/anush/Desktop/flask_name_copy/templates/static/images/good-luck.png" alt="">
+              <h5 class="text-center goodluck-txt mb-0 py-3">Good Luck </h5>
+            </div> -->
+            <div>
+
+              <div class="job-detail-wrapper pb-0">
+                <h3>
+                  Job Type :-
+                </h3>
+                <h4>{{ item}}</h4>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
